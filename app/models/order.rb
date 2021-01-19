@@ -9,4 +9,5 @@ class Order < ApplicationRecord
   }
   
   belongs_to :customer
+  has_many :ordered_item, dependent: :destroy
 end
