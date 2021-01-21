@@ -2,12 +2,16 @@ class Admin::ItemsController < ApplicationController
   
   
   def new
+    @item = Item.new
   end
   
   def create 
+    @item = Item.new(admin_item_params)
+    @item.save
   end
   
   def index
+   
   end
   
   def show
