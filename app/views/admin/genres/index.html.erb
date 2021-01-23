@@ -6,3 +6,19 @@
   <%= f.submit "新規登録" %>
 <% end %>
 
+<table class="table">
+  <thead>
+    <tr>
+      <th>ジャンル</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @genres.each do |genre| %>
+    <tr>
+     <td><%= genre.name %></td>
+     <td>編集する</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
