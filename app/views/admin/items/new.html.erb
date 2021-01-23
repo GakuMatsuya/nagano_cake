@@ -1,26 +1,25 @@
 <h2>商品新規登録</h2>
 
 <%= form_with model: @item, url:'/admin/items', local:true do |f| %>
-  <p>商品画像</p>
+ <p>商品画像</p>
   <%= f.attachment_field :image %>
-
+  
   <p>商品名</p>
   <%= f.text_field :name %>
-
+  
   <p>商品説明</p>
-  <%= f.text_area :introduction %>fff
+  <%= f.text_area :introduction %>
   
   <p>ジャンル</p>
+  <%= f.select :genre, [["ケーキ", "1"], ["クッキー", "2"]], include_blank: "選択して下さい" %>
   
-
   <p>税抜価格</p>
   <%= f.text_field :price %> <p>円</p>
-
+  
   <p>販売ステータス</p>
   <%= f.radio_button :is_active, :TRUE %>
   <%= f.label :is_active, "販売中", {value: :TRUE} %>
   <%= f.radio_button :is_active, :FALSE %>
   <%= f.label :is_active, "販売停止中", {value: :TRUE} %>
-
-  <%= f.submit "投稿" %>
+  <%= f.submit "新規登録" %>
 <% end %>
