@@ -1,7 +1,7 @@
 <h2>商品新規登録</h2>
 
 <%= form_with model: @item, url:'/admin/items', local:true do |f| %>
- <p>商品画像</p>
+  <p>商品画像</p>
   <%= f.attachment_field :image %>
 
   <p>商品名</p>
@@ -11,7 +11,8 @@
   <%= f.text_area :introduction %>
 
   <p>ジャンル</p>
-  
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
+
   <p>税抜価格</p>
   <%= f.text_field :price %> <p>円</p>
 
