@@ -5,6 +5,8 @@ class Item < ApplicationRecord
   has_many :ordered_items, dependent: :destroy
   attachment :image
   
-  enum is_active: { "販売中": true, "販売停止中": false }
-  validates :is_active, inclusion: {in: ["販売中", "販売停止中"]}
+  enum is_active:{
+    sale:            true,
+    stop_selling:    false
+   }
 end
