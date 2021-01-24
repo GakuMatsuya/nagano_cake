@@ -16,7 +16,7 @@
   <% end %>
   
   
-  <table class="table mt-5 col-5">
+  <table class="table mt-5 col-4">
     <thead>
       <tr>
         <th>ジャンル</th>
@@ -27,7 +27,7 @@
       <% @genres.each do |genre| %>
       <tr>
        <td><%= genre.name %></td>
-       <td><%= link_to "編集する", edit_admin_genre_path(genre.id) %></td>
+       <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-sm btn-success" %></td>
       </tr>
       <% end %>
     </tbody>
