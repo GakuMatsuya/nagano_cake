@@ -6,12 +6,13 @@ Rails.application.routes.draw do
     registrations: 'admin/sessions/registrations'
   }
   
+  devise_for :customers, controllers: {
+    sessions: "public/sessions/sessions",
+    passwords: "public/sessions/passwords",
+    registrations: "public/sessions/registrations"
+  }
   
-  
-  
-  
-  devise_for :customers
-   get '/admin' => 'admin/homes#top'
+  get '/admin' => 'admin/homes#top'
   
   namespace :admin do
     resources :items, except:[:destroy]
