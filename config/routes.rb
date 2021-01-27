@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   
   get '/admin' => 'admin/homes#top'
   get "/customers/my_page" => "public/customers#show"
+  post "/orders/confilm" => "public/orders#confilm"
+  get "/orders/thanks" => "public/orders#thanks"
   
   namespace :admin do
     resources :items, except:[:destroy]
@@ -21,6 +23,9 @@ Rails.application.routes.draw do
     resources :customers, except:[:new, :create, :destroy]
   end
   
-
+  namespace :public do
+    resources :orders, only:[:new, :create, :index, :show]
+  end
+  
 
 end
