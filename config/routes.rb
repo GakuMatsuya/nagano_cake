@@ -13,11 +13,14 @@ Rails.application.routes.draw do
   }
   
   get '/admin' => 'admin/homes#top'
+  get "/customers/my_page" => "public/customers#show"
   
   namespace :admin do
     resources :items, except:[:destroy]
     resources :genres, except:[:show, :destroy]
     resources :customers, except:[:new, :create, :destroy]
   end
+  
+
 
 end
