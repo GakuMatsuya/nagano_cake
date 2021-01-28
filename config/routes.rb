@@ -17,13 +17,14 @@ Rails.application.routes.draw do
   post "/orders/confilm" => "public/orders#confilm"
   get "/orders/thanks" => "public/orders#thanks"
   
+  
   namespace :admin do
     resources :items, except:[:destroy]
     resources :genres, except:[:show, :destroy]
     resources :customers, except:[:new, :create, :destroy]
   end
   
-  namespace :public do
+  scope module: :public do
     resources :orders, only:[:new, :create, :index, :show]
   end
   
