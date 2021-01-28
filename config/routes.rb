@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   }
 
   get '/admin' => 'admin/homes#top'
-  get "/customers" => "public/homes#top"
+  get "/" => "public/homes#top"
   get "/customers/my_page" => "public/customers#show"
   post "/orders/confilm" => "public/orders#confilm"
   get "/orders/thanks" => "public/orders#thanks"
