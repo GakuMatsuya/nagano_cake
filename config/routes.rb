@@ -22,10 +22,11 @@ Rails.application.routes.draw do
     resources :items, except:[:destroy]
     resources :genres, except:[:show, :destroy]
     resources :customers, except:[:new, :create, :destroy]
+    resources :orders, only:[:index, :show, :update]
   end
   
   scope module: :public do
-    resources :orders, only:[:new, :create, :index, :show]
+    resources :orders, only:[:new, :create, :show]
   end
   
 
