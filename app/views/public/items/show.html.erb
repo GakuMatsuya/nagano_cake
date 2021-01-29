@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row mt-5 offset-1">
+    <div class="col-3">
+      <%= attachment_image_tag @item, :image, :fill, 60, 60, size: "150x150" %>
+    </div>
+    
+    <div class="col-7">
+      <div class="row">
+        <h4><%= @item.name %></h4>
+      </div>
+      
+      <div class="row mt-3">
+        <%= @item.introduction %>
+      </div>
+      
+      <div class="row mt-4">
+        ￥<%= @item.price %>
+      </div>
+    </div>
+  </div>
+  
+    <%= form_with model: @item, url: orders_path, local:true  do |f| %>
+    <div class="row offset-4">
+      <div class="col-"><%= f.select :amount,[["1"], ["2"], ["3"], ["4"], ["5"], ["6"], ["7"], ["8"], ["9"]], include_blank: "個数選択" %></div>
+      <div class="col-1"></div><%= link_to "カートに入れる", edit_admin_item_path(@item), class: "btn btn-success btn-sm btn-block col-2" %></div>
+    </div>
+    <% end %>
+    </div>
