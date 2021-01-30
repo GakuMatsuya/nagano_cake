@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "/customers/my_page" => "public/customers#show"
   post "/orders/confilm" => "public/orders#confilm"
   get "/orders/thanks" => "public/orders#thanks"
-  delete "/cart_items/destroy_all" => "public/cart_items#des"
+  delete "/cart_items/destroy_all" => "public/cart_items#destroy_all"
 
 
   namespace :admin do
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :orders, only:[:new, :create, :show]
     resources :items, only:[:index, :show]
-    resources :cart_items, only[:index, :update, :destroy, :create]
+    resources :cart_items, only:[:index, :update, :destroy, :create]
   end
 
 
