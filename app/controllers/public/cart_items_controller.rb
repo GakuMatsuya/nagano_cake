@@ -2,6 +2,7 @@ class Public::CartItemsController < ApplicationController
 
   def index
     @cart_items = CartItem.all
+    @sum = 0
   end
 
   def update
@@ -34,8 +35,5 @@ class Public::CartItemsController < ApplicationController
   def cart_item_params
     params.require(:cart_item).permit(:amount, :item_id)
   end
-
-
-
 
 end

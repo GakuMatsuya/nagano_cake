@@ -16,20 +16,31 @@
     </thead>
 
     <tbody>
-      <% @cart_items.each do |cart_item| %>
+    <% @cart_items.each do |cart_item| %>
       <tr>
-        <td><%= attachment_image_tag cart_item.item, :image, :fill, 60, 60, size: "60x60" %><%= cart_item.item.name %></td>
+        <td><%= attachment_image_tag cart_item.item, :image, :fill, 60, 60, size: "60x60" %>  <%= cart_item.item.name %></td>
         <td><%= addTax(cart_item.item.price) %></td>
         <%= form_with model: cart_item, url: cart_item_path(cart_item.id), local:true  do |f| %>
         <td><%= f.select :amount,[["1"], ["2"], ["3"], ["4"], ["5"], ["6"], ["7"], ["8"], ["9"]], selected: cart_item.amount %>
         <div class="btn btn-wrape btn-success p-0" ><%= f.submit "変更", :class=>"btn text-white" %></div>
         </td>
         <% end %>
-        <td><%= addTax(cart_item.item.price) * cart_item.amount %></td>
+        <td><% @sum = @sum + addTax(cart_item.item.price) * cart_item.amount %><%= addTax(cart_item.item.price) * cart_item.amount %></td>
         <td><%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-wrape btn-danger" %></td>
       </tr>
-      <% end %>
     </tbody>
-  </table>
-</div>
+    <% end %>
 
+    <tfoot>
+      <tr>
+        <td><%= link_to "買物を続ける", "/", class: "btn btn-wrape btn-primary" %></td>
+        <td></td><td></td>
+        <th class="bg-gray">合計金額</th><td><%= @sum %></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="row offset-5">
+    <%= link_to "情報入力に進む", new_order_path, class: "btn btn-wrape btn-success" %>
+  </div>
+</div>
