@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get "/" => "public/homes#top"
   get "/about" => "public/homes#about"
   get "/customers/my_page" => "public/customers#show"
-  post "/orders/confilm" => "public/orders#confilm"
+  post "/orders/confirm" => "public/orders#confirm"
   get "/orders/thanks" => "public/orders#thanks"
   delete "/cart_items/destroy_all" => "public/cart_items#destroy_all"
 
