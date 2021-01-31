@@ -8,3 +8,7 @@ ja:
       is_active:
         effectiveness: "有効"
         withdrawn: "退会済み"
+    order:
+      payment_method:
+        credit_card: "クレジットカード"
+        bank_transfer: "銀行振込"
