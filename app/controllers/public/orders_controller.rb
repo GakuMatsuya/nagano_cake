@@ -5,14 +5,36 @@ class Public::OrdersController < ApplicationController
     @cart_items = CartItem.all
     @sum = 0
   end
+  
+  def index
+  end
 
   def create
+    @order = Order.new(order_params)
+    @order.save
+    redirect_to orders_thanks_path
   end
 
   def confirm
     @order = Order.new(order_params)
     @cart_items = CartItem.all
     @sum = 0
+    if params[:address_option] == '0'
+       @order.address = current_customer.address
+       @order.postal_code = current_customer.postal_code
+       @order.name = current_customer.last_name + current_customer.first_name
+    end
+    
+    if params[:address_option] == '1'
+    end  
+  
+    if params[:address_option] == '2'
+      
+    end
+  end
+  
+  def thanks
+
   end
 
   private
