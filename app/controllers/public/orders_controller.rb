@@ -4,6 +4,8 @@ class Public::OrdersController < ApplicationController
     @order = Order.new
     @cart_items = CartItem.all
     @sum = 0
+    
+
   end
   
   def index
@@ -25,12 +27,15 @@ class Public::OrdersController < ApplicationController
        @order.name = current_customer.last_name + current_customer.first_name
     end
     
+    address = Address.find(params[:order][:address_id])
+    
     if params[:address_option] == '1'
+      @order.address = address.address
+      @order.postal_code = address.postal_code
+      @order.name = address.name
     end  
   
-    if params[:address_option] == '2'
-      
-    end
+   
   end
   
   def thanks
