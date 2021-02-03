@@ -1,3 +1,4 @@
+<%= render "layouts/admin_header" %>
 <div class="container">
   <div class="row">
      <div class="mt-3 bg-light"><h5>会員一覧</h5></div>
@@ -11,7 +12,7 @@
         <th>ステータス</th>
       </tr>
     </thead>
-  
+
     <tbody>
       <% @customers.each do |customer| %>
       <tr>
