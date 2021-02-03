@@ -36,13 +36,13 @@
     <div class="col-3"><%= f.email_field :email %></div>
   </div>
 
-  <div class="row mt-3">
-    <div class="btn btn-sm btn-wrape btn-success py-0">
+  <div class="row mt-4">
+    <div class="btn btn-sm btn-wrape btn-success py-0 offset-3">
       <%= f.submit "編集内容を保存", :class=>"btn text-white" %>
     </div>
   <% end %>
-    <div>
-  　   <%= link_to "退会する", customers_unsubscribe_path, class: "btn btn-sm btn-wrape btn-danger py-0" %>
+    <div class="offset-2">
+  　   <%= link_to "退会する", customers_unsubscribe_path, class: "btn btn-danger" %>
   　</div>
   </div>
 </div>
