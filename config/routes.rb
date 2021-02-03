@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   post "/orders/confirm" => "public/orders#confirm"
   get "/orders/thanks" => "public/orders#thanks"
   delete "/cart_items/destroy_all" => "public/cart_items#destroy_all"
+  get "/customers/unsubscribe" => "public/customers#unsubscribe"
+  patch "/customers/withdraw" => "public/customers#withdraw"
 
 
   namespace :admin do
@@ -29,7 +31,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resources :orders, only:[:new, :create, :show]
+    resources :orders, only:[:new, :create, :show, :index]
     resources :items, only:[:index, :show]
     resources :cart_items, only:[:index, :update, :destroy, :create]
     resources :customers, only:[:edit, :update]
