@@ -1,3 +1,4 @@
+<%= render "layouts/customer_header" %>
 <div class="container">
   <div class="row offset-1">
     <div class="mt-3 bg-light"><h5>注文情報確認</h5></div>
@@ -55,8 +56,8 @@
 
   <div class="row mt-2">
     <h6><b>お届け先</b></h6>
-    <%= @order.postal_code %> <%= @order.address%> </br>
-    <%= @order.name%>
+    <%= @order.postal_code %> <%= @order.address %> </br>
+    <%= @order.name %>
   </div>
   
   <%= form_with model: @order, url: orders_path, local:true do |f| %>

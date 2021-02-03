@@ -1,3 +1,4 @@
+<%= render "layouts/customer_header" %>
 <div class="container">
   <div class="row mt-5 offset-1">
     <div class="col-3">
@@ -21,7 +22,7 @@
 
     <%= form_with model: CartItem.new, url: cart_items_path, local:true  do |f| %>
     <div class="row offset-4">
-      <div class="col-"><%= f.select :amount,[["1"], ["2"], ["3"], ["4"], ["5"], ["6"], ["7"], ["8"], ["9"]], include_blank: "個数選択" %></div>
+      <div class="co"><%= f.select :amount,[["1"], ["2"], ["3"], ["4"], ["5"], ["6"], ["7"], ["8"], ["9"]], include_blank: "個数選択" %></div>
       <%= f.hidden_field :item_id, :value => @item.id %>
       <div class="col-1"></div><%= f.submit "カートに入れる", :class => "btn btn-success btn-sm btn-block col-2" %></div>
     </div>
