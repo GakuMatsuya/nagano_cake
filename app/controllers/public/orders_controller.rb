@@ -1,5 +1,4 @@
 class Public::OrdersController < ApplicationController
-  
   before_action :authenticate_customer!
 
   def new
@@ -15,6 +14,16 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
+    @cart_items = current_customer.cart_items
+    @cart_items.each do |cart_item|
+      @ordered_item = OrderedItem.new
+      @ordered_item.item_id = cart_item.id
+      @ordered_item.price_including_tax = addTax(cart_item.item.price)
+      @ordered_item.amount = cart_item.amount
+      @ordered_item.status = 0
+      @ordered_item.order_id = @order.id
+      @ordered_item.save
+    end
     redirect_to orders_thanks_path
   end
 
@@ -46,6 +55,5 @@ class Public::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:address, :payment_method, :postal_code, :name, :billing_amount, :shipping_fee, :customer_id)
   end
-
-
+  
 end
