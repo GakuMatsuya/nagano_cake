@@ -3,7 +3,7 @@
     <ul class="navbar-nav navbar-brand">
       <li>LOGO</li>
     </ul>
-    <div class="offset-5 col-2">ようこそ<%= current_customer.last_name %>さん！</div>
+          
     <ul class="navbar-nav navbar-right">
       <% if signed_in? %>
         <li>
@@ -20,16 +20,16 @@
         </li>
       <% else %>
         <li>
-          <%= link_to "About", about_path %>
+          <%= link_to "About", about_path, class: "nav-link" %>
         </li>
         <li>
-          <%= link_to "商品一覧", items_path %>
+          <%= link_to "商品一覧", items_path, class: "nav-link" %>
         </li>
         <li>
-          <%= link_to "新規登録", new_customer_registration_path %>
+          <%= link_to "新規登録", new_customer_registration_path, class: "nav-link" %>
         </li>
         <li>
-          <%= link_to "ログイン", new_customer_session_path %>
+          <%= link_to "ログイン", new_customer_session_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>
