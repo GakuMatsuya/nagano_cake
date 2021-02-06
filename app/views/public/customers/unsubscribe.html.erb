@@ -11,9 +11,10 @@
     退会する場合は、「退会する」をクリックしてください。
   </div>
 
-  <%= form_with model: @customer, url: customers_withdraw_path, local:true do |f| %>
+  <%= form_with model: @customer, url: customers_withdraw_path(@customer.id), local:true do |f| %>
   <div class="row mt-4">
     <div class="offset-4 col-2 "><%= link_to "退会しない", customers_my_page_path, class: "btn btn-primary" %></div>
+    <%= f.hidden_field :is_active, :value => "withdrawn" %>
     <%= f.submit "退会する", :class=>"btn btn-sm text-white btn-danger py-0 offset-" %>
   </div>
   <% end %>
