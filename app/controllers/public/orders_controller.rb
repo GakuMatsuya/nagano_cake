@@ -2,10 +2,8 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @cart_items = CartItem.all
+    @cart_items = current_customer.cart_items
     @sum = 0
-
-
   end
 
   def index
@@ -20,7 +18,7 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-    @cart_items = CartItem.all
+    @cart_items = current_customer.cart_items
     @sum = 0
     if params[:address_option] == '0'
        @order.address = current_customer.address
@@ -35,8 +33,6 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = address.postal_code
       @order.name = address.name
     end
-
-
   end
 
   def thanks
