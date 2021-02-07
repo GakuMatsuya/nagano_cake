@@ -14,7 +14,7 @@ class Order < ApplicationRecord
   }
 
   belongs_to :customer
-  has_many :ordered_item, dependent: :destroy
-  accepts_nested_attributes_for :ordered_item, allow_destroy: true
-  
+  has_many :ordered_items, dependent: :destroy
+  accepts_nested_attributes_for :ordered_items, allow_destroy: true
+
 end
