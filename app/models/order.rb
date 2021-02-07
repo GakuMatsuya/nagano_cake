@@ -17,4 +17,12 @@ class Order < ApplicationRecord
   has_many :ordered_items, dependent: :destroy
   accepts_nested_attributes_for :ordered_items, allow_destroy: true
 
+  def calculate_ordered_item
+    sum = 0
+    self.ordered_items.each do |oi|
+      sum += oi.amount
+    end
+    
+    sum
+  end
 end
