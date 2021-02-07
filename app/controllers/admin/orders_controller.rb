@@ -10,8 +10,17 @@ class Admin::OrdersController < ApplicationController
   end
 
   def update
+    @order = Order.find(params[:id])
+    @order.update(ordered_params)
+    redirect_to admin_order_path(@order)
   end
 
+  private
 
+  def ordered_params
+   params.require(:order).permit(:status)
+  end
+
+ 
 
 end
