@@ -8,6 +8,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.orders
   end
 
   def create
@@ -55,5 +56,5 @@ class Public::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:address, :payment_method, :postal_code, :name, :billing_amount, :shipping_fee, :customer_id)
   end
-  
+
 end

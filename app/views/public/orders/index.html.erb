@@ -1,2 +1,41 @@
 <%= render "layouts/customer_header" %>
-注文履歴一覧
+
+<div class="container">
+  <div class="row offset-1">
+    <div class="mt-3 bg-light"><h5>注文履歴一覧</h5></div>
+  </div>
+
+  <table class="table mt-5" border="1">
+    <thead class="thead-light">
+      <tr>
+        <th>注文日</th>
+        <th>配送先</th>
+        <th>注文商品</th>
+        <th>支払金額</th>
+        <th>ステータス</th>
+        <th>注文詳細</th>
+      </tr>
+
+    <tbody>
+      <% @orders.each do |order| %>
+      <tr>
+        <td><%= l order.created_at,  format: :short %></td>
+        <td>
+          <%= order.postal_code %></br>
+          <%= order.address %></br>
+          <%= order.name %>
+        </td>
+        <td>
+          <% order.ordered_items.each do |ordered_item| %>
+            <%= ordered_item.item.name %></br>
+          <% end %>
+        </td>
+        <td><%= order.billing_amount %>円</td>
+        <td><%= order.status_i18n%></td>
+        <td><%= link_to "表示する", order_path(current_customer), class: "btn btn-sm btn-primary" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+    </thead>
+  </table>
+<>
