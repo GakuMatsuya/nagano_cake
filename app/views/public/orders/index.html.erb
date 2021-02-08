@@ -32,7 +32,7 @@
         </td>
         <td><%= order.billing_amount %>円</td>
         <td><%= order.status_i18n%></td>
-        <td><%= link_to "表示する", order_path(current_customer), class: "btn btn-sm btn-primary" %></td>
+        <td><%= link_to "表示する", order_path(order), class: "btn btn-sm btn-primary" %></td>
       </tr>
       <% end %>
     </tbody>
