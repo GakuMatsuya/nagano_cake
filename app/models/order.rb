@@ -25,4 +25,14 @@ class Order < ApplicationRecord
     
     sum
   end
+  
+  def calculate_total_price
+    sum = 0
+    self.ordered_items.each do |oi|
+      sum = sum + oi.price_including_tax * oi.amount
+    end
+    
+    sum
+  end
+
 end
