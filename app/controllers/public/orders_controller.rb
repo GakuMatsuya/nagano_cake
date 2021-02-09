@@ -30,6 +30,7 @@ class Public::OrdersController < ApplicationController
       @ordered_item.order_id = @order.id
       @ordered_item.save
     end
+    @cart_items.destroy_all
     redirect_to orders_thanks_path
   end
 
