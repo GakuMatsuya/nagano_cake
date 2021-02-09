@@ -8,7 +8,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders 
+    @orders = current_customer.orders
   end
 
   def show
@@ -23,10 +23,9 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|
       @ordered_item = OrderedItem.new
-      @ordered_item.item_id = cart_item.id
+      @ordered_item.item_id = cart_item.item_id
       @ordered_item.price_including_tax = addTax(cart_item.item.price)
       @ordered_item.amount = cart_item.amount
-      @ordered_item.status = 0
       @ordered_item.order_id = @order.id
       @ordered_item.save
     end
