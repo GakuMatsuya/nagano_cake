@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2021_01_19_133630) do
   end
 
   create_table "admins", force: :cascade do |t|
-    t.string "email", default: "gaku.1237@icloud.com", null: false
-    t.string "encrypted_password", default: "111111", null: false
+    t.string "email", null: false
+    t.string "encrypted_password", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
