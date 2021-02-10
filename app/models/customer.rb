@@ -12,4 +12,9 @@ class Customer < ApplicationRecord
     effectiveness:        true,
     withdrawn:            false
    }
+   
+  def active_for_authentication?
+    super && (self.is_active == false)
+  end
+
 end

@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
-  
+
   before_action :authenticate_customer!
 
   def show
@@ -23,6 +23,7 @@ class Public::CustomersController < ApplicationController
   def withdraw
     @customer = current_customer
     @customer.update(customer_params)
+    reset_session
     redirect_to "/"
   end
 
