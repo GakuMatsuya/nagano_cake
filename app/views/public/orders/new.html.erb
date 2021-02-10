@@ -28,7 +28,7 @@
       <div class="mt-2">
         <%= radio_button_tag :address_option, 1 %>
         <%= f.label :address, "登録済み住所から選択", {value: :address} %> </br>
-        <%= f.collection_select :address_id, Address.all, :id, :view_address %>
+        <%= f.collection_select :address_id, current_customer.addresses, :id, :view_address %>
       </div>
       <div class="mt-2">
         <%= radio_button_tag :address_option, 2 %>
@@ -51,7 +51,7 @@
   <% @cart_items.each do |cart_item| %>
   <% @sum = @sum + addTax(cart_item.item.price) * cart_item.amount %>
   <% end %>
-  <div class="row offset-4 mt-3">
+  <div class="row offset-3 mt-3">
     <%= f.hidden_field :billing_amount, :value => @sum + 800 %>
     <%= f.hidden_field :shipping_fee, :value => 800 %>
     <%= f.hidden_field :status %>
