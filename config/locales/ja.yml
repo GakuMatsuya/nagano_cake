@@ -12,10 +12,6 @@ ja:
       is_active:
         effectiveness: "有効"
         withdrawn: "退会済み"
-    order:
-      payment_method:
-        credit_card: "クレジットカード"
-        bank_transfer: "銀行振込"
     ordered_item:
       status:
         cannot_be_started: "着手不可"
@@ -29,3 +25,6 @@ ja:
         production: "製作中"
         preparing_to_ship: "発送準備中"
         sent: "発送済み"
+      payment_method:
+        credit_card: "クレジットカード"
+        bank_transfer: "銀行振込"
