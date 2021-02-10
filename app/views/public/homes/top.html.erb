@@ -14,7 +14,9 @@
   <div class="row mt-4 offset-1">
     <% @items.each do |item| %>
     <p class="offset-1">
-      <%= attachment_image_tag item, :image, :fill, 60, 60, size: "120x100" %></br>
+      <%= link_to item_path(item) do %>
+        <%= attachment_image_tag item, :image, :fill, 60, 60, size: "120x100" %></br>
+      <% end %>
       <%= item.name %></br>
       ￥<%= addTax(item.price) %>
     </p>
@@ -22,10 +24,5 @@
   </div>
 
   <div class="text-right"><%= link_to "全ての商品を見る>", items_path %></div>
-
-
-
-
-
 </div>
 
