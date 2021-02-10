@@ -51,7 +51,7 @@
           <td><%= ordered_item.price_including_tax %></td>
           <td><%= ordered_item.amount %></td>
           <td><% @sum = @sum + ordered_item.price_including_tax * ordered_item.amount %><%= ordered_item.price_including_tax * ordered_item.amount %></td>
-        <%= form_with model: ordered_item, url: admin_order_detail_path(ordered_item), local:true  do |f| %>
+        <%= form_with model: ordered_item, url: admin_order_detail_path(ordered_item.id), local:true  do |f| %>
           <td><%= f.select :status, [["着手不可", "cannot_be_started"], ["製作待ち", "waiting_for_production"], ["製作中", "production"], ["製作完了", "production_completed"]] %>
               <div class="btn btn-sm btn-success p-0" ><%= f.submit "更新", :class=>"btn text-white" %></div>
           </td>

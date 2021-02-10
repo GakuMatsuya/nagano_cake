@@ -1,6 +1,7 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
 
+
   def new
     @order = Order.new
     @cart_items = current_customer.cart_items
