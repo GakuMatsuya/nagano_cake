@@ -2,6 +2,7 @@
 
 class Public::Sessions::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :reject_customer, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -33,10 +34,10 @@ class Public::Sessions::SessionsController < Devise::SessionsController
     new_customer_session_path
   end
   
-  def reject_user
+  def reject_customer
     @customer = Customer.find_by(email: params[:customer][:email])
     if @cutomer
-      if (@customer.valid_password?(params[:user][:password]) && (@customer.active_for_authentication? == false))
+      if (@customer.valid_password?(params[:customer][:password]) && (@customer.active_for_authentication? == false))
         redirect_to new_customer_session_path
       end
     end
