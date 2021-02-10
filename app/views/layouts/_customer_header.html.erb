@@ -1,9 +1,13 @@
 <nav class="navbar navbar-expand-md">
   <div class="container">
     <ul class="navbar-nav navbar-brand">
-      <li>LOGO</li>
+      <li>
+        <%= link_to "/" do %>
+          <%= image_tag 'logo.png', size: "50x40" %>
+        <% end %>
+      </li>
     </ul>
-          
+
     <ul class="navbar-nav navbar-right">
       <% if signed_in? %>
         <li>
