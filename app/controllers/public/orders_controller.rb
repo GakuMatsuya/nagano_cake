@@ -44,9 +44,8 @@ class Public::OrdersController < ApplicationController
        @order.name = current_customer.last_name + current_customer.first_name
     end
 
-    address = Address.find(params[:order][:address_id])
-
     if params[:address_option] == '1'
+      address = Address.find(params[:order][:address_id])
       @order.address = address.address
       @order.postal_code = address.postal_code
       @order.name = address.name
