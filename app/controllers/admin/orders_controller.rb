@@ -19,7 +19,6 @@ class Admin::OrdersController < ApplicationController
         end
       end
       end
-  
     redirect_to admin_order_path(@order)
   end
 
@@ -28,7 +27,5 @@ class Admin::OrdersController < ApplicationController
   def order_params
    params.require(:order).permit(:status)
   end
-
-
 
 end

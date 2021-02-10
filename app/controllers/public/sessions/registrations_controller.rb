@@ -42,9 +42,7 @@ class Public::Sessions::RegistrationsController < Devise::RegistrationsControlle
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute, :last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :is_active])
-  end
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -60,9 +58,15 @@ class Public::Sessions::RegistrationsController < Devise::RegistrationsControlle
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  
+
   def after_sign_up_path_for(resource)
     customers_my_page_path
   end
-  
+
+  private
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute, :last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :is_active])
+  end
+
 end
