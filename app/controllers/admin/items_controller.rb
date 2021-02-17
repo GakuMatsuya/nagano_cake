@@ -14,9 +14,11 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
-   @items = Item.all
+   #@items = Item.all
+   @search = Item.ransack(params[:q])
+   @items = @search.result
   end
-
+  
   def show
     @item = Item.find(params[:id])
   end
